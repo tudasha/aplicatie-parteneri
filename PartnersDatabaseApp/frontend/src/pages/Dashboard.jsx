@@ -183,9 +183,9 @@ const Dashboard = ({ user, onLogout, onOpenTutorial, dashboardActionsRef }) => {
   const hasActiveFilters = searchQuery || filterStatus !== 'All' || filterYear !== 'All' || filterMinValue || filterContacted !== 'All' || sortBy !== 'name';
 
   return (
-    <div className="min-h-screen p-8 max-w-7xl mx-auto">
+    <div className="min-h-screen p-4 md:p-8 max-w-7xl mx-auto overflow-x-hidden">
       {/* Header */}
-      <header className="clay-card flex justify-between items-center mb-10 py-4 px-8">
+      <header className="clay-card flex flex-col md:flex-row justify-between items-center gap-6 mb-10 py-4 px-4 md:px-8 text-center md:text-left">
         <div className="flex items-center gap-4">
           <div className="w-12 h-12 bg-clay-brand rounded-xl shadow-clay-sm flex items-center justify-center text-white">
             <Building2 className="w-6 h-6" />
@@ -196,7 +196,7 @@ const Dashboard = ({ user, onLogout, onOpenTutorial, dashboardActionsRef }) => {
           </div>
         </div>
         
-        <div className="flex items-center gap-6">
+        <div className="flex flex-wrap items-center justify-center md:justify-end gap-4 mt-4 md:mt-0">
           <button 
             id="show-stats-btn"
             onClick={() => setShowMetrics(!showMetrics)}
@@ -204,7 +204,7 @@ const Dashboard = ({ user, onLogout, onOpenTutorial, dashboardActionsRef }) => {
           >
             <TrendingUp className="w-4 h-4" /> {showMetrics ? 'Hide Stats' : 'Show Stats'}
           </button>
-          <div className="text-right">
+          <div className="text-right ml-2 mr-2">
             <p className="font-black text-slate-700">{user.username}</p>
             <p className="text-xs font-bold text-slate-400 bg-white shadow-clay-inset px-2 py-0.5 rounded-full">{user.role}</p>
           </div>
@@ -248,8 +248,8 @@ const Dashboard = ({ user, onLogout, onOpenTutorial, dashboardActionsRef }) => {
               { label: 'Confirmed', value: stats.confirmedCompanies || 0, icon: <Award className="w-6 h-6"/>, color: 'text-orange-500', id: 'metric-confirmed' },
               { label: 'Avg. Response (Blended)', value: stats.avgSatisfaction ? `${stats.avgSatisfaction.toFixed(1)}/10` : 'N/A', icon: <Star className="w-6 h-6"/>, color: stats.avgSatisfaction >= 7 ? 'text-green-500' : stats.avgSatisfaction >= 4 ? 'text-orange-500' : 'text-red-500', id: 'metric-satisfaction' },
             ].map((m, i) => (
-              <div id={m.id} key={i} className="clay-card p-6 flex items-center gap-6">
-                <div className={`w-14 h-14 bg-white rounded-2xl shadow-clay-sm flex items-center justify-center ${m.color}`}>
+              <div id={m.id} key={i} className="clay-card p-4 md:p-6 flex items-center gap-4 md:gap-6 min-w-0">
+                <div className={`w-12 h-12 md:w-14 md:h-14 shrink-0 bg-white rounded-2xl shadow-clay-sm flex items-center justify-center ${m.color}`}>
                   {m.icon}
                 </div>
                 <div>
@@ -261,8 +261,8 @@ const Dashboard = ({ user, onLogout, onOpenTutorial, dashboardActionsRef }) => {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <div id="chart-revenue" className="clay-card p-8">
-              <h3 className="text-sm font-black text-slate-400 uppercase mb-8 ml-2">Revenue trend by Year</h3>
+            <div id="chart-revenue" className="clay-card p-4 md:p-8 min-w-0">
+              <h3 className="text-sm font-black text-slate-400 uppercase mb-4 md:mb-8 ml-2">Revenue trend by Year</h3>
               <div className="h-64 mt-4">
                 <ReResponsiveContainer width="100%" height="100%">
                   <ReBarChart data={stats.revenueByYear}>
@@ -279,8 +279,8 @@ const Dashboard = ({ user, onLogout, onOpenTutorial, dashboardActionsRef }) => {
               </div>
             </div>
 
-            <div id="chart-packages" className="clay-card p-8">
-              <h3 className="text-sm font-black text-slate-400 uppercase mb-8 ml-2">Package Distribution</h3>
+            <div id="chart-packages" className="clay-card p-4 md:p-8 min-w-0 overflow-hidden">
+              <h3 className="text-sm font-black text-slate-400 uppercase mb-4 md:mb-8 ml-2">Package Distribution</h3>
               <div className="h-64">
                 <ReResponsiveContainer width="100%" height="100%">
                   <RePieChart>
@@ -309,8 +309,8 @@ const Dashboard = ({ user, onLogout, onOpenTutorial, dashboardActionsRef }) => {
           {(stats.satisfactionByHour?.length > 0 || stats.satisfactionByDay?.length > 0 || stats.satisfactionByMonth?.length > 0) && (
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-8">
               {stats.satisfactionByMonth?.length > 0 && (
-                <div className="clay-card p-8 hover:shadow-clay-md transition-shadow">
-                  <h3 className="text-sm font-black text-slate-400 uppercase mb-8 ml-2 flex items-center gap-2">
+                <div className="clay-card p-4 md:p-8 hover:shadow-clay-md transition-shadow min-w-0">
+                  <h3 className="text-sm font-black text-slate-400 uppercase mb-4 md:mb-8 ml-2 flex items-center gap-2">
                     <Star className="w-4 h-4 text-emerald-500" /> Best Month to Contact
                   </h3>
                   <div className="h-64 mt-4">
@@ -332,8 +332,8 @@ const Dashboard = ({ user, onLogout, onOpenTutorial, dashboardActionsRef }) => {
               )}
 
               {stats.satisfactionByDay?.length > 0 && (
-                <div className="clay-card p-8 hover:shadow-clay-md transition-shadow">
-                  <h3 className="text-sm font-black text-slate-400 uppercase mb-8 ml-2 flex items-center gap-2">
+                <div className="clay-card p-4 md:p-8 hover:shadow-clay-md transition-shadow min-w-0">
+                  <h3 className="text-sm font-black text-slate-400 uppercase mb-4 md:mb-8 ml-2 flex items-center gap-2">
                     <Star className="w-4 h-4 text-orange-500" /> Best Day to Contact
                   </h3>
                   <div className="h-64 mt-4">
@@ -355,8 +355,8 @@ const Dashboard = ({ user, onLogout, onOpenTutorial, dashboardActionsRef }) => {
               )}
 
               {stats.satisfactionByHour?.length > 0 && (
-                <div className="clay-card p-8 hover:shadow-clay-md transition-shadow">
-                  <h3 className="text-sm font-black text-slate-400 uppercase mb-8 ml-2 flex items-center gap-2">
+                <div className="clay-card p-4 md:p-8 hover:shadow-clay-md transition-shadow min-w-0">
+                  <h3 className="text-sm font-black text-slate-400 uppercase mb-4 md:mb-8 ml-2 flex items-center gap-2">
                     <Star className="w-4 h-4 text-indigo-500" /> Best Hour to Contact
                   </h3>
                   <div className="h-64 mt-4">
