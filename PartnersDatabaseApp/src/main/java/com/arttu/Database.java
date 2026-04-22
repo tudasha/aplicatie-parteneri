@@ -11,8 +11,8 @@ public class Database {
         String envUrl = System.getenv("DB_URL");
         if (envUrl == null) {
             envUrl = "jdbc:postgresql://localhost:5433/partnersdatabaseupdated";
-        } else if (envUrl.startsWith("postgres://")) {
-            // Render gives us: postgres://user:pass@host/db
+        } else if (envUrl.startsWith("postgres://") || envUrl.startsWith("postgresql://")) {
+            // Render gives us: postgres://user:pass@host/db or postgresql://...
             // JDBC needs: jdbc:postgresql://host/db
             // We strip the username and password from the URL because DriverManager uses the USER and PASSWORD variables
             try {
@@ -20,7 +20,7 @@ public class Database {
                 envUrl = "jdbc:postgresql://" + uri.getHost() + ":" + (uri.getPort() != -1 ? uri.getPort() : 5432) + uri.getPath() + (uri.getQuery() != null ? "?" + uri.getQuery() : "");
             } catch (Exception e) {
                 // Fallback basic replacement if URI parsing fails
-                envUrl = envUrl.replace("postgres://", "jdbc:postgresql://");
+                envUrl = envUrl.replaceFirst("postgres(?:ql)?://", "jdbc:postgresql://");
                 // Remove the user:pass@ part manually
                 envUrl = envUrl.replaceAll("//.*@", "//");
             }
