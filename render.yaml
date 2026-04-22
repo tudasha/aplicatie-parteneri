@@ -1,0 +1,40 @@
+services:
+  # Backend Web Service
+  - type: web
+    name: arttu-api
+    runtime: java
+    rootDir: PartnersDatabaseApp
+    buildCommand: mvn clean install -DskipTests
+    startCommand: java -jar target/oop-project-darialuana-0.0.1-SNAPSHOT.jar
+    envVars:
+      - key: DB_URL
+        fromDatabase:
+          name: arttu-db
+          property: connectionString
+      - key: DB_USER
+        fromDatabase:
+          name: arttu-db
+          property: user
+      - key: DB_PASSWORD
+        fromDatabase:
+          name: arttu-db
+          property: password
+      - key: PORT
+        value: 8081
+
+  # Frontend Static Site
+  - type: static
+    name: arttu-frontend
+    rootDir: PartnersDatabaseApp/frontend
+    buildCommand: npm install && npm run build
+    publishPath: ./dist
+    envVars:
+      - key: VITE_API_URL
+        fromService:
+          name: arttu-api
+          type: web
+          property: host
+
+databases:
+  - name: arttu-db
+    plan: free
