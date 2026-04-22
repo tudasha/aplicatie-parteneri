@@ -23,11 +23,12 @@ services:
         value: 8081
 
   # Frontend Static Site
-  - type: static
+  - type: web
     name: arttu-frontend
+    runtime: static
     rootDir: PartnersDatabaseApp/frontend
     buildCommand: npm install && npm run build
-    publishPath: ./dist
+    staticPublishPath: ./dist
     envVars:
       - key: VITE_API_URL
         fromService:
