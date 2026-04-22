@@ -15,8 +15,4 @@ public class HealthController {
         return status;
     }
 
-    @GetMapping("/")
-    public String home() {
-        return "Arttu API is running. Visit /health for status.";
-    }
 }
