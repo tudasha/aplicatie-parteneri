@@ -38,18 +38,22 @@ public class ApiController {
 
     @PostMapping("/auth/register")
     public Map<String, Object> register(@RequestBody Map<String, String> data) {
-        boolean success = userDAO.registerUser(
-            data.get("username"),
-            data.get("password"),
-            data.get("fullName"),
-            data.get("position"),
-            data.get("department"),
-            data.get("email")
-        );
-        
         Map<String, Object> response = new HashMap<>();
-        response.put("success", success);
-        if (!success) response.put("message", "Username or Email already exists!");
+        try {
+            boolean success = userDAO.registerUser(
+                data.get("username"),
+                data.get("password"),
+                data.get("fullName"),
+                data.get("position"),
+                data.get("department"),
+                data.get("email")
+            );
+            response.put("success", success);
+            if (!success) response.put("message", "Username or Email already exists!");
+        } catch (Exception e) {
+            response.put("success", false);
+            response.put("message", "DB Error: " + e.getMessage());
+        }
         return response;
     }
 

@@ -42,9 +42,9 @@ public class UserDAO {
             return true;
 
         } catch (SQLException e) {
-            // Daca intra aici, inseamna ca userul exista deja (Duplicate Key)
-            System.out.println("Eroare la inregistrare (posibil duplicat): " + e.getMessage());
-            return false;
+            // Return the actual error message so we can debug it Live
+            System.out.println("Eroare la inregistrare: " + e.getMessage());
+            throw new RuntimeException(e.getMessage());
         }
     }
 
