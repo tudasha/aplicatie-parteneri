@@ -3,7 +3,7 @@ services:
   - type: web
     name: arttu-api
     runtime: docker
-    dockerContext: .
+    dockerContext: PartnersDatabaseApp
     dockerfilePath: PartnersDatabaseApp/Dockerfile
     envVars:
       - key: DB_URL
