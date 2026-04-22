@@ -1,0 +1,101 @@
+/* ARTTU THEME - BURGUNDY & BLUR */
+:root {
+    --burgundy: #800020; /* The requested Burgundy Red */
+    --dark-bg: #1a1a1a;
+    --text-white: #ffffff;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--dark-bg);
+    color: var(--text-white);
+    /* LOGO BACKGROUND LOGIC */
+    background-image: url('/logo.png'); /* Ensure logo.png is in static folder */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 50%; /* Adjust size as needed */
+    background-attachment: fixed;
+}
+
+/* This creates the "Blurred" effect over the background logo */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(26, 26, 26, 0.85); /* Dark overlay with transparency */
+    backdrop-filter: blur(5px); /* The blur magic */
+    z-index: -1;
+}
+
+/* CARDS & CONTAINERS */
+.container {
+    max-width: 1100px;
+    margin: 40px auto;
+    background: rgba(255, 255, 255, 0.95); /* Slightly transparent white */
+    color: black;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* HEADERS */
+h1.burgundy-title {
+    color: var(--burgundy);
+    font-size: 2.5em;
+    text-transform: uppercase;
+    border-bottom: 4px solid var(--burgundy);
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+/* BUTTONS */
+.btn-burgundy {
+    background-color: var(--burgundy);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+.btn-burgundy:hover { background-color: #5c0017; }
+
+.btn-action {
+    display: inline-block;
+    padding: 15px 30px;
+    margin: 20px;
+    font-size: 1.2em;
+    text-decoration: none;
+    color: white;
+    background-color: var(--burgundy);
+    border-radius: 8px;
+}
+
+/* POPUP (MODAL) STYLING */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.8);
+}
+.modal-content {
+    background-color: white;
+    color: black;
+    margin: 10% auto;
+    padding: 20px;
+    border: 2px solid var(--burgundy);
+    width: 50%;
+    border-radius: 10px;
+    text-align: center;
+}
+
+/* TABLE STYLING */
+table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+th { background-color: black; color: white; padding: 15px; cursor: pointer; } /* Sortable headers */
+td { padding: 12px; border-bottom: 1px solid #ddd; text-align: left; }
+tr:hover { background-color: #f1f1f1; cursor: pointer; } /* Hover effect for click details */

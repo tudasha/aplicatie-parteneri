@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Join ARTTU</title>
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        body { background-color: #1a1a1a; color: white; display: flex; justify-content: center; align-items: center; height: 100vh; font-family: Arial, sans-serif; }
+        .card { background: white; color: black; padding: 40px; border-radius: 10px; width: 350px; text-align: center; }
+        h2 { color: #800020; margin-bottom: 20px; }
+
+        input, select {
+            width: 100%; padding: 12px; margin: 8px 0;
+            border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box;
+        }
+
+        .btn-black { background-color: #000; color: white; padding: 12px; width: 100%; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; margin-top: 10px; }
+        .btn-black:hover { background-color: #333; }
+        a { color: #666; text-decoration: none; font-size: 0.9em; }
+    </style>
+</head>
+<body>
+<div class="card">
+    <h2>Create Account</h2>
+    <form action="/register" method="post">
+        <input type="text" name="username" placeholder="Username" required>
+        <input type="email" name="email" placeholder="Email Address" required>
+
+        <input type="text" name="numePrenume" placeholder="Full Name (Nume Prenume)" required>
+
+        <input type="text" name="position" placeholder="Position (e.g. Member)" required>
+
+        <select name="department" required>
+            <option value="" disabled selected>Select Department</option>
+            <option value="Mechanical">Mechanical</option>
+            <option value="Electrical">Electrical</option>
+            <option value="Accumulator and Powertrain">Accumulator and Powertrain</option>
+            <option value="Vehicle Dynamics">Vehicle Dynamics</option>
+            <option value="Finances and Marketing">Finances and Marketing</option>
+        </select>
+
+        <input type="password" name="password" placeholder="Password" required>
+
+        <button type="submit" class="btn-black">Sign Up</button>
+    </form>
+    <br>
+    <a href="/login">Already have an account? Login</a>
+</div>
+</body>
+</html>

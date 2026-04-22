@@ -1,11 +1,10 @@
 services:
-  # Backend Web Service
+  # Backend Web Service (using Docker for Java support)
   - type: web
     name: arttu-api
-    runtime: java
-    rootDir: PartnersDatabaseApp
-    buildCommand: mvn clean install -DskipTests
-    startCommand: java -jar target/oop-project-darialuana-0.0.1-SNAPSHOT.jar
+    runtime: docker
+    dockerContext: .
+    dockerFilePath: PartnersDatabaseApp/Dockerfile
     envVars:
       - key: DB_URL
         fromDatabase:

@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-clay-bg text-slate-800 min-h-screen font-sans;
+  }
+}
+
+@layer components {
+  .clay-card {
+    @apply bg-white shadow-clay-md rounded-clay p-6 border-white/50 border;
+  }
+  
+  .clay-button {
+    @apply px-6 py-2 rounded-clay font-bold transition-all active:scale-95 shadow-clay-sm hover:shadow-clay-md;
+  }
+
+  .clay-button-primary {
+    @apply clay-button bg-clay-brand text-white;
+  }
+
+  .clay-button-secondary {
+    @apply clay-button bg-white text-clay-brand;
+  }
+
+  .clay-input {
+    @apply w-full bg-clay-bg border-none rounded-xl px-4 py-3 shadow-clay-inset focus:ring-2 focus:ring-clay-brand outline-none transition-shadow;
+  }
+}
