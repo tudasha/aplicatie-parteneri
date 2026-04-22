@@ -1,0 +1,186 @@
+{
+	"folders": {
+		"partnersdatabseupdated": {}
+	},
+	"connections": {
+		"dbeaver-sample-database-sqlite-1": {
+			"provider": "sqlite",
+			"driver": "sqlite_jdbc",
+			"name": "DBeaver Sample Database (SQLite)",
+			"save-password": true,
+			"show-system-objects": true,
+			"configuration": {
+				"database": "C:\\Users\\ABI\\AppData\\Roaming\\DBeaverData\\workspace6\\.metadata\\sample-database-sqlite-1\\Chinook.db",
+				"url": "jdbc:sqlite:C:\\Users\\ABI\\AppData\\Roaming\\DBeaverData\\workspace6\\.metadata\\sample-database-sqlite-1\\Chinook.db",
+				"configurationType": "MANUAL",
+				"type": "dev",
+				"closeIdleConnection": true
+			}
+		},
+		"sqlite_jdbc-19a05e7644d-238e77f7c6e842cc": {
+			"provider": "sqlite",
+			"driver": "sqlite_jdbc",
+			"name": "sailor",
+			"save-password": true,
+			"configuration": {
+				"database": "sailor",
+				"url": "jdbc:sqlite:sailor",
+				"configurationType": "MANUAL",
+				"type": "dev",
+				"closeIdleConnection": true,
+				"auth-model": "native"
+			}
+		},
+		"sqlite_jdbc-19a05e84a7b-3e41155c88cef418": {
+			"provider": "sqlite",
+			"driver": "sqlite_jdbc",
+			"name": "sailor.db",
+			"save-password": true,
+			"configuration": {
+				"database": "C:\\Users\\ABI\\Documents\\sailor.db",
+				"url": "jdbc:sqlite:C:\\Users\\ABI\\Documents\\sailor.db",
+				"configurationType": "MANUAL",
+				"type": "dev",
+				"closeIdleConnection": true,
+				"auth-model": "native"
+			}
+		},
+		"postgres-jdbc-19a724564e3-303403b0067d2221": {
+			"provider": "postgresql",
+			"driver": "postgres-jdbc",
+			"name": "movies",
+			"save-password": true,
+			"configuration": {
+				"host": "localhost",
+				"port": "5433",
+				"database": "postgres",
+				"url": "jdbc:postgresql://localhost:5433/postgres",
+				"configurationType": "MANUAL",
+				"home": "postgresql-x64-18",
+				"type": "dev",
+				"closeIdleConnection": true,
+				"provider-properties": {
+					"@dbeaver-show-non-default-db@": "false"
+				},
+				"auth-model": "native"
+			}
+		},
+		"postgres-jdbc-19a96181e40-75e097ec5a909d27": {
+			"provider": "postgresql",
+			"driver": "postgres-jdbc",
+			"name": "northwind",
+			"save-password": true,
+			"configuration": {
+				"host": "localhost",
+				"port": "5433",
+				"database": "northwind",
+				"url": "jdbc:postgresql://localhost:5433/northwind",
+				"configurationType": "MANUAL",
+				"home": "postgresql-x64-18",
+				"type": "dev",
+				"closeIdleConnection": true,
+				"provider-properties": {
+					"@dbeaver-show-non-default-db@": "false"
+				},
+				"auth-model": "native"
+			}
+		},
+		"postgres-jdbc-19aba424779-3c3e87bc14dcc691": {
+			"provider": "postgresql",
+			"driver": "postgres-jdbc",
+			"name": "cars",
+			"save-password": true,
+			"configuration": {
+				"host": "localhost",
+				"port": "5433",
+				"database": "cars",
+				"url": "jdbc:postgresql://localhost:5433/cars",
+				"configurationType": "MANUAL",
+				"home": "postgresql-x64-18",
+				"type": "dev",
+				"closeIdleConnection": true,
+				"provider-properties": {
+					"@dbeaver-show-non-default-db@": "false"
+				},
+				"auth-model": "native"
+			}
+		},
+		"postgres-jdbc-19b026af917-3109a9eb48553ee5": {
+			"provider": "postgresql",
+			"driver": "postgres-jdbc",
+			"name": "books2s",
+			"save-password": true,
+			"configuration": {
+				"host": "localhost",
+				"port": "5433",
+				"database": "books2s",
+				"url": "jdbc:postgresql://localhost:5433/books2s",
+				"configurationType": "MANUAL",
+				"home": "postgresql-x64-18",
+				"type": "dev",
+				"closeIdleConnection": true,
+				"provider-properties": {
+					"@dbeaver-show-non-default-db@": "false"
+				},
+				"auth-model": "native"
+			}
+		},
+		"postgres-jdbc-19b263ff4ac-55a87933e776ca13": {
+			"provider": "postgresql",
+			"driver": "postgres-jdbc",
+			"name": "partnersdatabaseupdated",
+			"save-password": true,
+			"folder": "partnersdatabseupdated",
+			"configuration": {
+				"host": "localhost",
+				"port": "5433",
+				"database": "partnersdatabaseupdated",
+				"url": "jdbc:postgresql://localhost:5433/partnersdatabaseupdated",
+				"configurationType": "MANUAL",
+				"home": "postgresql-x64-18",
+				"type": "dev",
+				"closeIdleConnection": true,
+				"provider-properties": {
+					"@dbeaver-show-non-default-db@": "false"
+				},
+				"auth-model": "native"
+			}
+		},
+		"postgres-jdbc-19bb6aa1f4f-52329dd987d50901": {
+			"provider": "postgresql",
+			"driver": "postgres-jdbc",
+			"name": "clothes",
+			"save-password": true,
+			"configuration": {
+				"host": "localhost",
+				"port": "5433",
+				"database": "clothes",
+				"url": "jdbc:postgresql://localhost:5433/clothes",
+				"configurationType": "MANUAL",
+				"home": "postgresql-x64-18",
+				"type": "dev",
+				"closeIdleConnection": true,
+				"provider-properties": {
+					"@dbeaver-show-non-default-db@": "false"
+				},
+				"auth-model": "native"
+			}
+		}
+	},
+	"connection-types": {
+		"dev": {
+			"name": "Development",
+			"color": "255,255,255",
+			"description": "Regular development database",
+			"auto-commit": true,
+			"confirm-execute": false,
+			"confirm-data-change": false,
+			"smart-commit": false,
+			"smart-commit-recover": true,
+			"auto-close-transactions": true,
+			"close-transactions-period": 1800,
+			"auto-close-connections": true,
+			"close-connections-period": 14400
+		}
+	}
+}
