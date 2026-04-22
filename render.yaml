@@ -4,7 +4,7 @@ services:
     name: arttu-api
     runtime: docker
     dockerContext: .
-    dockerFilePath: PartnersDatabaseApp/Dockerfile
+    dockerfilePath: PartnersDatabaseApp/Dockerfile
     envVars:
       - key: DB_URL
         fromDatabase:
@@ -27,7 +27,7 @@ services:
     runtime: static
     rootDir: PartnersDatabaseApp/frontend
     buildCommand: npm install && npm run build
-    staticPublishPath: ./dist
+    publishPath: ./dist
     envVars:
       - key: VITE_API_URL
         fromService:
